@@ -6,6 +6,7 @@
         public string Surname { get; }
         public string PinCode { get; }
         public int Money { get; private set; }
+
         public Client(string name, string surname, string pinCode, int money)
         {
             Name = name;
@@ -14,12 +15,9 @@
             Money = money;
         }
 
-        public void InsertMoney(int money)
+        public void AddMoney(int money)
         {
-            if (money > 0 && money < 400000)
-            {
-                Money += money;
-            }
+            Money += money;
         }
     }
 }

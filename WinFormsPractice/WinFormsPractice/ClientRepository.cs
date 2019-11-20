@@ -9,22 +9,19 @@ namespace WinFormsPractice
 
         public ClientRepository()
         {
-            Initialize();
+            InitializeClients();
         }
 
-        public Client GetClientByPin(string pin)
+        private void InitializeClients()
         {
-            return _clients.FirstOrDefault(x => x.PinCode == pin);
+            _clients = new List<Client>();
+            _clients.Add(new Client("Роман", "Китар", "1234", 1000));
+            _clients.Add(new Client("Сергей", "Никольский", "5678", 1000));
         }
 
-        private void Initialize()
+        public Client GetClientByPin(string pinCode)
         {
-            _clients = new List<Client>
-            {
-                new Client("John", "Doe", "1234", 1000),
-                new Client("Китар", "Роман", "4581", 1000),
-                new Client("Сергей", "Никольский", "3567", 1000),
-            };
+            return _clients.FirstOrDefault(x => x.PinCode == pinCode);
         }
     }
 }
